@@ -53,7 +53,15 @@
 		form {background-color:#C0E4FF; font-size:18px;font-family:comic Sans MS;}
 		label {font-family:comic Sans MS; float: left; width: 45%; clear: left; text-align: right; padding-right: 18px; }
 		input, textarea, select {font-family:comic Sans MS; display: block; font-size:16px;} 
-		#mySubmit { margin-left: auto; margin-right: auto; width:200px; height:50px;}
+				.submit {font-weight:bold;
+				 font-family:Courier,Verdana,sans-serif;
+				 background-color: #4CAF50;
+				 border: solid;
+				 color: black;
+				 padding: 15px 25px;
+				 text-align: center;
+				 font-size: 25px;
+			     cursor: pointer;}
 	</style>
 	
 	<h1>Seniorcism</h1>
@@ -114,7 +122,7 @@
 				<input type="text" name="city" id="city" placeholder="city" size="30"required><br><br>
 				<label for="postcode">Post Code:</label>
 				<input type="text" name="postcode" id="postcode" placeholder="postcode" pattern="[0-9]{5}" size="30"required><br><br>
-				<input class="button" type="submit" value="Submit" id="mySubmit"><a id="a2" href="summit.html">
+			<button class="submit" type="button"><a id="a2" href="summit.html">Submit</button>
 			</fieldset>
 		</form>
 </div>
