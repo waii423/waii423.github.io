@@ -1,0 +1,156 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
+		
+	<style>
+		#a2   {color:black;
+			   text-decoration:none;}
+		.button {font-weight:bold;
+				 font-family:Courier,Verdana,sans-serif;
+				 background-color: #4CAF50;
+				 border: solid;
+				 color: black;
+				 padding: 15px 25px;
+				 text-align: center;
+				 font-size: 25px;
+			     cursor: pointer;}
+				 
+		#class	{color:black;}
+		
+		a:visited {color:white;}		
+		body {background-color:none;
+			  background-image:url("best3.jpg");}
+		.a  {text-decoration:none;}
+
+			  
+		h1	 {text-decoration:underline overline;
+			  font-size:50px;
+			  padding-left:200px;
+			  padding-top:10px;
+			  text-shadow:10px 5px 15px white;
+			  float:top;}
+		nav  {
+		      padding-left:300px;
+			  color:white;
+			  font-size:15pt;
+			  font-weight:bold;
+			  text-transform:none;
+			  font-family:Courier,Verdana,sans-serif;
+			  background-color:black;
+			  background-image:}
+			  
+		div  {text-align:center;}
+		
+        hr   {border-style:solid;
+			  border-width:5px;
+			  border-color:black;}
+		
+		.a:hover {color:green;}
+		
+		
+		
+		h2	{font-family:comic Sans MS; font-size:25px;}
+		form {background-color:#C0E4FF; font-size:18px;font-family:comic Sans MS;}
+		label{font-family:comic Sans MS; float: left; width: 45%; clear: left; text-align: right; padding-right: 18px; }
+		input, textarea, select,p,#loca{font-family:comic Sans MS; display: block; font-size:16px;} 
+		#mySubmit { margin-left: auto; margin-right: auto; width:200px; height:50px;}
+		#getLoc	{float:center;font-family:comic Sans MS;font-size:16px;}
+	</style>
+	
+	<h1>Seniorcism</h1>
+	
+</head>
+
+<body>
+
+	<nav>
+		<a class="a" href="home.html">Home &nbsp;</a>
+		<a class="a" href="aboutus.html">&nbsp;About Us &nbsp;</a>
+		<a class="a" href="contact.html">&nbsp;Contact &nbsp;</a>
+			<div class="dropdown">
+				<button class="dropbtn">Program</button>
+				<div class="dropdown-content">
+					<a id="class" href="shopping.html">Shopping</a>
+					<a id="class" href="meal.html">Meals</a>
+					<a id="class" href="personalcare.html">Personal Care</a>
+					<a id="class" href="healthcare.html">Health Care</a>
+					<a id="class" href="transport.html">Transport</a>
+					<a id="class" href="homecleaning.html">Home Cleaning</a>
+
+				</div>
+			</div>
+		<a class="a" href="career.html">&nbsp;Career &nbsp;</a>
+		<a class="a" href="login.html">&nbsp;Log In<a>
+	</nav><hr>
+
+	<div id="map">
+		<h2>Booking Transportation</h2>
+		<form method="get">
+		<fieldset>
+			<legend>Booking Details:</legend>
+			<br>
+			<label for="username">Username: </label>
+			<input type="text" name="username" id="username" placeholder="Your username" pattern="[a-zA-Z]{3,}" size="30" title="Please enter in more than three letters" required><br><br>
+			<label for="email">Email: </label>
+			<input type="text" name="email" id="email" placeholder="Your Email" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}" size="30"title="Please enter a value email address" required><br><br>
+			<label for="phone">Phone number: </label>
+			<input type="tel" name="phone" id="phone" placeholder="Please enter in your phone number" pattern="[0-9]{10}" size="30"title="Please enter in a phone number in this formal: ###-#######" required><br><br>
+			<label for="date">Booking date & time:</label>
+			<input type="datetime-local" name="date"size="23" min="2018-07-01T00:00" required><br><br>
+			<label for="loca">Location:</label>
+			<input type="text" id="loca" size="23"readonly>
+			<button onclick="getLocation()" id="getLoc">Get location</button>
+			<div id="divCheckbox" style="visibility: show">
+			<p id="demo">&nbsp</p></div>
+
+			
+			
+			<input class="button" type="submit" value="Submit" id="mySubmit"><a id="a2" href="summit.html">
+		</fieldset>
+		</form>
+	</div>
+
+	
+
+	<script>
+	var x = document.getElementById("demo");
+
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition, showError);
+		} else { 
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	function showPosition(position) {
+		x.innerHTML=position.coords.latitude+","+position.coords.longitude;
+		loca.value = x.innerHTML;
+		document.getElementById("divCheckbox").style.visibility = "hidden";
+	}
+
+	function showError(error) {
+		switch(error.code) {
+			case error.PERMISSION_DENIED:
+				x.innerHTML = "User denied the request for Geolocation."
+				break;
+			case error.POSITION_UNAVAILABLE:
+				x.innerHTML = "Location information is unavailable."
+				break;
+			case error.TIMEOUT:
+				x.innerHTML = "The request to get user location timed out."
+				break;
+			case error.UNKNOWN_ERROR:
+				x.innerHTML = "An unknown error occurred."
+				break;
+		}
+	}
+	</script>
+	
+	
+</body>
+<footer>
+</footer>
+</html>
